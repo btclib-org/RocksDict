@@ -18,7 +18,7 @@
 
 Wheels available for macOS amd64/arm64, linux amd64/arm64, and windows amd64.
 
-- `pip install rocksdict` for rocksdb backend, then `from rocksdict import Rdict`
+- `pip install btclib-rocksdict` for rocksdb backend, then `from rocksdict import Rdict`
 - `pip install speedict` for speedb backend, then `from speedict import Rdict`
 
 ## Introduction
