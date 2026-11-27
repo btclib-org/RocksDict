@@ -1,3 +1,10 @@
+> **This is a temporary fork of [rocksdict/RocksDict](https://github.com/rocksdict/RocksDict).**
+> It merges the open pull requests rocksdict/RocksDict#192 to #197: Python 3.15 and free-threaded wheels, and four bug fixes.
+> Its wheels are on PyPI as `btclib-rocksdict`, and the import name stays `rocksdict`.
+> Do not install it beside `rocksdict`: both ship the same `rocksdict` package.
+> We prefer contributing upstream, and this fork ends once a RocksDict release carries these changes.
+> Report problems of the fork here, and everything else upstream.
+
 # RocksDict / SpeeDict
 
 **Key-value storage for Python & Wrapper of Rocksdb and Speedb**
