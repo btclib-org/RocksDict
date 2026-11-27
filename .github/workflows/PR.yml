@@ -1,8 +1,10 @@
 name: PR check
 
 on:
+  push:
+    branches: [btclib-main]
   pull_request:
-    branches: [main, speedict]
+    branches: [main, speedict, btclib-main]
 
 jobs:
   macos:
