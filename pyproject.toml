@@ -1,5 +1,5 @@
 [project]
-name = "rocksdict"
+name = "btclib-rocksdict"
 version = "0.3.29"
 description = "Rocksdb Python Binding"
 long_description_content_type = "text/markdown"

@@ -49,7 +49,7 @@ jobs:
           maturin build --release --target x86_64-apple-darwin --out dist -i ${{ matrix.py_version }}
       - name: Install built wheel
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
       - name: Python UnitTest
         run: |
@@ -101,7 +101,7 @@ jobs:
           RUSTFLAGS: "-Clinker-plugin-lto -Clinker=lld-link"
       - name: Install built wheel and test
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - name: Upload wheels
@@ -144,7 +144,7 @@ jobs:
 
       - name: Install built wheel and test
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - uses: actions/setup-python@v5
@@ -153,7 +153,7 @@ jobs:
           architecture: x64
       - name: Install built wheel and test on free-threaded Python
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - name: Upload wheels
@@ -195,7 +195,7 @@ jobs:
           RUSTFLAGS: "-Clinker-plugin-lto -Clinker=/usr/local/bin/clang -Clink-arg=-fuse-ld=/usr/local/bin/ld.lld"
       - name: Install built wheel and test
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - name: Upload wheels
@@ -237,7 +237,7 @@ jobs:
           RUSTFLAGS: "-Clinker-plugin-lto -Clinker=/usr/local/bin/clang -Clink-arg=-fuse-ld=/usr/local/bin/ld.lld"
       - name: Install built wheel and test
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - name: Upload wheels
@@ -279,7 +279,7 @@ jobs:
           RUSTFLAGS: "-Clinker-plugin-lto -Clinker=/usr/local/bin/clang -Clink-arg=-fuse-ld=/usr/local/bin/ld.lld"
       - name: Install built wheel and test
         run: |
-          pip install rocksdict --no-index --find-links dist --force-reinstall || true
+          pip install btclib-rocksdict --no-index --find-links dist --force-reinstall || true
           pip install speedict --no-index --find-links dist --force-reinstall || true
           python -m unittest discover -v test
       - name: Upload wheels
@@ -327,7 +327,7 @@ jobs:
       - name: Run Tests
         run: |
           docker run --rm -v ${{ github.workspace }}/dist:/dist:ro -v ${{ github.workspace }}/test:/test:ro congyuwang/musllinux_1_2_x86_64:llvm-21.1.5 bash -c "
-            python3.12 -m pip install rocksdict --no-index --find-links /dist --force-reinstall || true
+            python3.12 -m pip install btclib-rocksdict --no-index --find-links /dist --force-reinstall || true
             python3.12 -m pip install speedict --no-index --find-links /dist --force-reinstall || true
             python3.12 -m unittest discover -v /test"
       - name: Upload artifacts
@@ -375,7 +375,7 @@ jobs:
       - name: Run Tests
         run: |
           docker run --rm -v ${{ github.workspace }}/dist:/dist:ro -v ${{ github.workspace }}/test:/test:ro congyuwang/musllinux_1_2_aarch64:llvm-21.1.5 bash -c "
-            python3.12 -m pip install rocksdict --no-index --find-links /dist --force-reinstall || true
+            python3.12 -m pip install btclib-rocksdict --no-index --find-links /dist --force-reinstall || true
             python3.12 -m pip install speedict --no-index --find-links /dist --force-reinstall || true
             python3.12 -m unittest discover -v /test"
       - name: Upload artifacts
