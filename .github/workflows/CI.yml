@@ -398,27 +398,37 @@ jobs:
         musllinux_1_2_x86_64,
         musllinux_1_2_arm64,
       ]
+    environment:
+      name: pypi
+      url: https://pypi.org/project/btclib-rocksdict/
     permissions:
-      contents: write
+      id-token: write # required by Trusted Publishing to request the OIDC token
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           path: dist
           pattern: wheels-*
           merge-multiple: true
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.15"
       - name: Publish to PyPi
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: |
-          pip install --upgrade twine
-          twine upload --skip-existing dist/*
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+        with:
+          skip-existing: true
+
+  github-release:
+    name: Github Release
+    runs-on: ubuntu-latest
+    needs: [release]
+    if: github.ref_type == 'tag'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          path: dist
+          pattern: wheels-*
+          merge-multiple: true
       - name: Github Release
-        uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
