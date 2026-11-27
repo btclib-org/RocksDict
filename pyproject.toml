@@ -4,6 +4,7 @@ version = "0.3.29.1"
 description = "Rocksdb Python Binding"
 long_description_content_type = "text/markdown"
 readme = "README.md"
+license-files = ["LICENSE", "licenses/*/*"]
 keywords = ["rocksdb", "dbm", "dict", "key-value"]
 
 classifiers = [
@@ -27,7 +28,7 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["maturin>=1.0,<2.0"]
+requires = ["maturin>=1.9.3,<2.0"]
 build-backend = "maturin"
 
 [tool.maturin]
